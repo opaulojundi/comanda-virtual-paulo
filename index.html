@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Comanda Minimal · Restaurante</title>
+    <meta name="description" content="Sistema de comanda minimalista para restaurantes">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#000000">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header class="header">
+            <h1>🍽️ comanda</h1>
+            <button class="cart-toggle" id="cartToggle" aria-label="Abrir comanda">
+                <span class="cart-count" id="cartCount">0</span>
+            </button>
+        </header>
+
+        <main class="main-content" id="mainContent">
+            <!-- Produtos serão renderizados aqui -->
+        </main>
+
+        <!-- Comanda Sidebar -->
+        <div class="cart-sidebar" id="cartSidebar">
+            <div class="cart-header">
+                <h2>comanda atual</h2>
+                <button class="close-cart" id="closeCart">✕</button>
+            </div>
+            <div class="cart-items" id="cartItems"></div>
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <span>subtotal</span>
+                    <span id="summarySubtotal">R$ 0,00</span>
+                </div>
+                
+                <div class="discount-section">
+                    <label>desconto</label>
+                    <div class="discount-options">
+                        <input type="number" id="discountValue" placeholder="R$ 0,00" min="0" step="0.01">
+                        <select id="discountType">
+                            <option value="fixed">R$</option>
+                            <option value="percent">%</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="service-section">
+                    <label>taxa do garçom</label>
+                    <div class="service-buttons">
+                        <button class="service-btn" data-service="0">0%</button>
+                        <button class="service-btn" data-service="5">5%</button>
+                        <button class="service-btn" data-service="10">10%</button>
+                        <button class="service-btn" data-service="15">15%</button>
+                        <button class="service-btn" data-service="20">20%</button>
+                    </div>
+                    <input type="number" id="customService" placeholder="outro %" min="0" step="0.1">
+                </div>
+
+                <div class="people-section">
+                    <label>dividir conta</label>
+                    <div class="people-control">
+                        <button id="decrementPeople">−</button>
+                        <span id="peopleCount">1</span>
+                        <button id="incrementPeople">+</button>
+                    </div>
+                </div>
+
+                <div class="total-section">
+                    <div class="total-row">
+                        <span>total</span>
+                        <span id="totalAmount">R$ 0,00</span>
+                    </div>
+                    <div class="per-person" id="perPerson">por pessoa: R$ 0,00</div>
+                </div>
+
+                <button class="finalize-btn" id="finalizeOrder">finalizar comanda</button>
+            </div>
+        </div>
+
+        <!-- Modal Finalização -->
+        <div class="modal" id="finalizeModal">
+            <div class="modal-content">
+                <h2>comanda finalizada</h2>
+                <div class="modal-body" id="finalizeDetails"></div>
+                <button class="close-modal" id="closeModal">nova comanda</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
