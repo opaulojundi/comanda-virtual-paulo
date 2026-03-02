@@ -1,5 +1,5 @@
 {
-    "name": "Comanda Restaurante",
+    "name": "Comanda Virtual - Paulo",
     "short_name": "Comanda",
     "description": "Sistema de comanda minimalista para restaurantes",
     "start_url": "/",
@@ -49,4 +49,5 @@
             "type": "image/png"
         }
     ]
+
 }
